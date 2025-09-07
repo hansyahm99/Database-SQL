@@ -1,0 +1,15 @@
+--ROW_NUMBER / RANK / DENSE_RANK
+
+select * from uber.uber_noche;
+
+with ranked as (
+select
+	pickup_location,
+	customer_id,
+	booking_value,
+	row_number() over (partition by pickup_location order by booking_value desc) as rn,
+	rank()		 over (partition by pickup_location order by booking_value desc) as rnk,
+	dense_rank() over (partition by pickup_location order by booking_value desc) as drnk
+from uber.uber_noche
+)
+select * from ranked where rn <=3;
