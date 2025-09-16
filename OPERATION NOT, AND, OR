@@ -1,0 +1,16 @@
+--NOT, AND, OR
+
+--NOT
+select * from public.dummy_transactions;
+select * from public.dummy_transactions WHERE branch_id = 'A';
+select * from public.dummy_transactions WHERE NOT branch_id = 'A';
+
+--AND
+select * from public.dummy_transactions;
+select * from public.dummy_transactions where (branch_id = 'A') and (customer_gender = 'Female');
+
+--OR
+select * from public.dummy_transactions;
+select * from public.dummy_transactions where (branch_id = 'A') or (customer_gender = 'Female');
+
+
