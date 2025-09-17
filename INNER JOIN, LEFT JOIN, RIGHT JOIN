@@ -1,0 +1,49 @@
+---INNER JOINT
+
+CREATE TABLE raw_daily (ID_ INT PRIMARY KEY, 
+                         Collector VARCHAR(55), 
+                         Team VARCHAR(30), 
+                         Cycle_ VARCHAR(5),
+                         Repayment_collections INTEGER,
+                         Repayment_amount INTEGER,
+                         Pending_Amount INTEGER);
+INSERT into raw_daily (ID_, 
+       					Collector, 
+       					Team, 
+       					Cycle_,
+       					Repayment_collections,
+       					Repayment_amount,
+       					Pending_Amount)
+VALUES(1, 'Riska Nurlita', 'Hansyah_S2l', 'S2', 2, 210825, 185707932),
+(2, 'Aldi Taufik', 'Hansyah_S2l', 'S2', 1, 889419, 155461518),
+(3, 'Yandi Nugraha', 'Hansyah_S2l', 'S2', 1, 385785, 116749122),
+(4, 'Annisa Putri Restu', 'Hansyah_S2l', 'S2', 0, 0, 183235803),
+(5, 'Debora Retima Sihombing', 'Hansyah_S2l', 'S2', 0, 0, 174752101);
+
+CREATE TABLE rate_daily (ID_ INT PRIMARY KEY, 
+                         Collector VARCHAR(55),  
+                         Pending_Amount_Recovery float,
+                         Talk_time INTEGER);
+INSERT into rate_daily(ID_,
+                      Collector,
+                      Pending_Amount_Recovery,
+                      Talk_time)
+VALUES(1, 'Riska Nurlita', 0.11, 13),
+(2, 'Aldi Taufik', 0.57, 14),
+(3, 'Yandi Nugraha', 0.33, 0),
+(4, 'Annisa Putri Restu', 0.00, 52),
+(5, 'Debora Retima Sihombing', 0.00, 284); 
+
+---INNER JOINT
+SELECT raw_daily.id_, raw_daily.collector, raw_daily.cycle_, raw_daily.repayment_collections, raw_daily.repayment_amount, raw_daily.pending_amount,
+rate_daily.pending_amount_recovery, rate_daily.talk_time
+from raw_daily
+INNER JOIN rate_daily on raw_daily.id_ = rate_daily.id_;
+
+
+
+
+
+
+
+
