@@ -1,0 +1,11 @@
+
+-- IS NULL, IS NOT NULL
+select * from public.dummy_transactions;
+select * from public.dummy_transactions where unit_price IS NULL;
+select * from public.dummy_transactions where unit_price IS NOT NULL;
+
+--ORDER BY(DESCENDING OR ASCENDING)
+select * from public.dummy_transactions;
+select * from public.dummy_transactions ORDER BY unit_price;
+select * from public.dummy_transactions ORDER BY unit_price asc;
+select * from public.dummy_transactions ORDER BY unit_price desc;
