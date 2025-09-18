@@ -1,0 +1,19 @@
+--IN, BETWEEN AND LIKE
+
+--IN
+select 2 in (1, 2, 3, 4);
+select * from public.dummy_transactions;
+select * from public.dummy_transactions where product_category in ('Home and lifestyle', 'Sports and travel');
+
+--BETWEEN
+select 2 between 1 and 10;
+select * from public.dummy_transactions;
+select * from public.dummy_transactions where branch_id between 'A' and 'B';
+
+--LIKE
+select 'bandung' like 'bandung';
+select 'bandung selatan' like '%bandung';
+select 'jakarta utara' like 'jakarta%';
+select 'daerah jakarta utara' like '%jakarta%';
+select * from public.dummy_transactions;
+select * from public.dummy_transactions where product_category like '%accessories';
