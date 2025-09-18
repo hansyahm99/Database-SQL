@@ -1,0 +1,15 @@
+--COUNT, MAX, MIN
+--COUNT
+select * from public.dummy_transactions;
+select COUNT(*) from public.dummy_transactions;
+select COUNT(customer_gender) from public.dummy_transactions;
+select COUNT(DISTINCT customer_gender) from public.dummy_transactions;
+select COUNT(DISTINCT city) from public.dummy_transactions;
+
+-- MAX
+select * from public.dummy_transactions;
+SELECT MAX(unit_price) from public.dummy_transactions;
+
+--MIN
+select * from public.dummy_transactions;
+SELECT MIN (unit_price) from public.dummy_transactions;
