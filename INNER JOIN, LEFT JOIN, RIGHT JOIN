@@ -40,6 +40,40 @@ rate_daily.pending_amount_recovery, rate_daily.talk_time
 from raw_daily
 INNER JOIN rate_daily on raw_daily.id_ = rate_daily.id_;
 
+SELECT * FROM rate_daily;
+SELECT * FROM raw_daily;
+
+SELECT raw_daily.id_, raw_daily.collector, raw_daily.cycle_, raw_daily.repayment_collections, raw_daily.repayment_amount, raw_daily.pending_amount,
+rate_daily.pending_amount_recovery, rate_daily.talk_time
+from raw_daily
+INNER JOIN rate_daily on raw_daily.id_ = rate_daily.id_;
+
+--LEFT JOIN
+SELECT 
+    raw_daily.id_, 
+    raw_daily.collector, 
+    raw_daily.repayment_collections, 
+    raw_daily.repayment_collections, 
+    raw_daily.pending_amount, 
+    rate_daily.pending_amount_recovery, 
+    rate_daily.talk_time     
+from raw_daily
+LEFT JOIN rate_daily
+ON raw_daily.id_ = rate_daily.id_;
+
+--RIGHT JOIN
+SELECT 
+    rate_daily.id_, 
+    rate_daily.collector, 
+    rate_daily.pending_amount_recovery, 
+    rate_daily.talk_time, 
+    raw_daily.repayment_collections, 
+    raw_daily.pending_amount
+FROM rate_daily 
+RIGHT JOIN raw_daily  
+ON rate_daily.id_ = raw_daily.id_;
+
+
 
 
 
